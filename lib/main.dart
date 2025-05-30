@@ -1,5 +1,4 @@
 import 'package:auth_package/auth_package.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rentcontrol/pages/cadastro_page.dart';
@@ -8,8 +7,6 @@ import 'package:rentcontrol/pages/login_page.dart';
 import 'package:rentcontrol/routers/routers.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(const App());
 }
 class App extends StatelessWidget {

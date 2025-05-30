@@ -42,31 +42,64 @@ class CadastroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Center(
+      backgroundColor: Colors.grey[100],
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Cadastrar-se", style: TextStyle(fontSize: 24)),
+              Text(
+                "Criar Conta",
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue[700],
+                ),
+              ),
+              const SizedBox(height: 32),
               TextField(
                 controller: emailController,
-                decoration: const InputDecoration(hintText: 'E-mail'),
+                decoration: InputDecoration(
+                  labelText: 'E-mail',
+                  prefixIcon: Icon(Icons.email),
+                ),
+                keyboardType: TextInputType.emailAddress,
               ),
+              const SizedBox(height: 16),
               TextField(
                 controller: senhaController,
                 obscureText: true,
-                decoration: const InputDecoration(hintText: 'Senha'),
+                decoration: InputDecoration(
+                  labelText: 'Senha',
+                  prefixIcon: Icon(Icons.lock),
+                ),
               ),
+              const SizedBox(height: 16),
               TextField(
                 controller: resenhaController,
                 obscureText: true,
-                decoration: const InputDecoration(hintText: 'Repetir a senha'),
+                decoration: InputDecoration(
+                  labelText: 'Repetir senha',
+                  prefixIcon: Icon(Icons.lock_outline),
+                ),
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () => registerUser(context),
-                child: const Text("Cadastrar"),
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => registerUser(context),
+                  child: const Text("Cadastrar"),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Já tem uma conta? Voltar ao login",
+                  style: TextStyle(color: Colors.blue[600]),
+                ),
               ),
             ],
           ),

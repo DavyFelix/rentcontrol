@@ -1,15 +1,13 @@
-import 'package:auth_package/auth_package.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:rentcontrol/components/casaItem.dart';
 import 'package:rentcontrol/components/drawer.dart';
-import 'package:rentcontrol/routers/routers.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    
-    final rentsAuth = Provider.of<RentsAuth>(context, listen: false);
-
     return Scaffold(
       drawer: const DrawerMenu(),
       appBar: AppBar(
@@ -18,21 +16,41 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Center(
-        child: Text('sei la'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await rentsAuth.signOut();
-          Navigator.pushReplacementNamed(context, Routes.LOGIN);
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('casa').snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(child: Text('Erro ao carregar dados'));
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          final casas = snapshot.data?.docs ?? [];
+
+          if (casas.isEmpty) {
+            return const Center(child: Text('Nenhuma casa cadastrada'));
+          }
+
+          return ListView.builder(
+            itemCount: casas.length,
+            itemBuilder: (context, index) {
+              final doc = casas[index];
+              final data = doc.data();
+
+              if (data == null || data is! Map<String, dynamic>) {
+                return const ListTile(
+                  title: Text('Erro nos dados'),
+                  subtitle: Text('Não foi possível ler este item.'),
+                );
+              }
+
+              return CasaItem(data);
+            },
+          );
         },
-        child: Icon(Icons.logout),
-        tooltip: 'Sair',
       ),
     );
   }
-}
-
-extension on RentsAuth {
-  signOut() {}
 }

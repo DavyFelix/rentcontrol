@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100507319008",
+    "project_id": "rentalcontrol-e6e10",
+    "storage_bucket": "rentalcontrol-e6e10.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100507319008:android:1bb0a9c4283d088546ee85",
+        "android_client_info": {
+          "package_name": "com.example.rentcontrol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxFNzSJazDsMv5cSSpEEMm9Hoz5rIXHKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

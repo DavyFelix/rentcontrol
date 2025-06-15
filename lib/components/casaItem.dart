@@ -2,21 +2,17 @@ import 'package:flutter/material.dart';
 
 class CasaItem extends StatelessWidget {
   final Map<String, dynamic> data;
+  final VoidCallback onTap;
 
-  const CasaItem(this.data, {super.key});
+  const CasaItem({super.key, required this.data, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    final bairro = data['Bairro '] ?? 'Sem bairro';
-    final rua = data['Rua'] ?? 'Sem rua';
-    final id = data['id'] ?? 'Sem ID';
-
-    return Card(
-      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      child: ListTile(
-        title: Text('ID: $id'),
-        subtitle: Text('Bairro: $bairro\nRua: $rua'),
-      ),
+    return ListTile(
+      title: Text(data['Rua'] ?? 'Sem Rua'),
+      subtitle: Text(data['Bairro '] ?? 'Sem endereço'),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: onTap,
     );
   }
 }

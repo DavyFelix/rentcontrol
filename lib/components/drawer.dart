@@ -15,7 +15,7 @@ class DrawerMenu extends StatelessWidget {
           DrawerHeader(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/menuft.png'),
+                image: AssetImage('assets/images/predios.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -49,7 +49,7 @@ class DrawerMenu extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 2, 101, 248),
+                      color: Color.fromARGB(255, 255, 255, 255),
                     ),
                     textAlign: TextAlign.center,
                   ),

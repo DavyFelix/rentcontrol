@@ -9,7 +9,7 @@ class SobrePage extends StatelessWidget {
       children: [
         Positioned.fill(
           child: Image.asset(
-            'assets/images/menuft.png',
+            'assets/images/predios.jpg',
             fit: BoxFit.cover,
             // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.3),
@@ -37,7 +37,12 @@ class SobrePage extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Sobre o App'),
             // ignore: deprecated_member_use
-            backgroundColor: const Color.fromARGB(255, 230, 252, 152).withOpacity(0.95),
+            backgroundColor: const Color.fromARGB(
+              255,
+              18,
+              168,
+              255,
+            ).withOpacity(0.95),
             elevation: 3,
           ),
           body: SingleChildScrollView(
@@ -61,7 +66,7 @@ class SobrePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    'CHECKPOINTO',
+                    'Controle de Aluguel',
                     style: TextStyle(
                       fontSize: 34,
                       fontWeight: FontWeight.bold,

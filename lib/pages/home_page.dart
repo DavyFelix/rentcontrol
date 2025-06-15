@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rentcontrol/components/casaItem.dart';
 import 'package:rentcontrol/components/drawer.dart';
+import 'package:rentcontrol/pages/conta_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -46,7 +47,17 @@ class HomePage extends StatelessWidget {
                 );
               }
 
-              return CasaItem(data);
+              return CasaItem(
+                data: data,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ContasPage(casaId: doc.id),
+                    ),
+                  );
+                },
+              );
             },
           );
         },

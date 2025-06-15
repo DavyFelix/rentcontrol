@@ -5,6 +5,7 @@ import 'package:auth_package/auth_package.dart';
 import 'package:rentcontrol/pages/cadastro_page.dart';
 import 'package:rentcontrol/pages/home_page.dart';
 import 'package:rentcontrol/pages/login_page.dart';
+import 'package:rentcontrol/pages/sobre_page.dart';
 import 'package:rentcontrol/routers/routers.dart';
 import 'firebase_options.dart';
 
@@ -56,6 +57,7 @@ class App extends StatelessWidget {
           Routes.LOGIN: (_) => LoginPage(),
           Routes.CADASTRO: (_) => CadastroPage(),
           Routes.HOME: (_) => HomePage(),
+          Routes.SOBRE: (_) => SobrePage(),
         },
       ),
     );

@@ -15,9 +15,9 @@ class LoginPage extends StatelessWidget {
       if (response) {
         Navigator.pushNamed(context, Routes.HOME);
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Email ou senha inválidos")),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text("Email ou senha inválidos")));
       }
     });
   }
@@ -78,17 +78,11 @@ class LoginPage extends StatelessWidget {
                   ),
                   child: Text(
                     "Acessar",
-                    style: TextStyle(fontSize: 16, color: const Color.fromARGB(255, 248, 247, 247)),
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: const Color.fromARGB(255, 248, 247, 247),
+                    ),
                   ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.CADASTRO);
-                },
-                child: Text(
-                  "Não tem uma conta? Cadastre-se",
-                  style: TextStyle(color: const Color.fromARGB(255, 4, 172, 250)),
                 ),
               ),
             ],

@@ -34,15 +34,18 @@ class CadastroPage extends StatelessWidget {
   }
 
   void _showMessage(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: const Text('Criar Conta', style: TextStyle(color: Colors.black)),
+      ),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
@@ -90,15 +93,6 @@ class CadastroPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => registerUser(context),
                   child: const Text("Cadastrar"),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "Já tem uma conta? Voltar ao login",
-                  style: TextStyle(color: Colors.blue[600]),
                 ),
               ),
             ],

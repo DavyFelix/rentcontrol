@@ -58,6 +58,14 @@ class DrawerMenu extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.person),
+            title: Text("Adicionar Contas"),
+            trailing: Icon(Icons.arrow_right),
+            onTap: () {
+              Navigator.pushNamed(context, Routes.CADASTRO);
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.info_outline_rounded),
             title: Text("Sobre"),
             trailing: Icon(Icons.arrow_right),

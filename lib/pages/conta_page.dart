@@ -16,7 +16,7 @@ class ContasPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Contas da Casa')),
       body: StreamBuilder<QuerySnapshot>(
-        stream: contasRef.snapshots(),
+        stream: contasRef.orderBy('criadoEm', descending: true).snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(child: Text('Erro ao carregar contas'));
@@ -37,6 +37,7 @@ class ContasPage extends StatelessWidget {
             itemBuilder: (context, index) {
               final conta = contas[index].data() as Map<String, dynamic>;
               final status = conta['status'] ?? 'Pendente';
+              final mes = conta['mes'] ?? '-';
 
               return Card(
                 margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -45,14 +46,13 @@ class ContasPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: ListTile(
-                  title: Text(conta['descricao'] ?? 'Sem descrição'),
+                  title: Text(conta['mes'] ?? 'Sem descrição'),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Valor: R\$ ${conta['valor']?.toStringAsFixed(2) ?? '0.00'}',
                       ),
-                      const SizedBox(height: 4),
                       Text(
                         'Status: $status',
                         style: TextStyle(
@@ -88,7 +88,9 @@ class ContasPage extends StatelessWidget {
   Widget _novaContaDialog(BuildContext context, CollectionReference contasRef) {
     final descricaoController = TextEditingController();
     final valorController = TextEditingController();
-    String status = 'Pendente';
+
+    String mesSelecionado = 'Janeiro';
+    String statusSelecionado = 'Pendente';
 
     return StatefulBuilder(
       builder: (context, setState) {
@@ -101,9 +103,40 @@ class ContasPage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TextField(
-                  controller: descricaoController,
-                  decoration: const InputDecoration(labelText: 'Descrição'),
+                const SizedBox(height: 10),
+                DropdownButtonFormField<String>(
+                  value: mesSelecionado,
+                  decoration: const InputDecoration(labelText: 'Mês'),
+                  items: const [
+                    DropdownMenuItem(value: 'Janeiro', child: Text('Janeiro')),
+                    DropdownMenuItem(
+                      value: 'Fevereiro',
+                      child: Text('Fevereiro'),
+                    ),
+                    DropdownMenuItem(value: 'Março', child: Text('Março')),
+                    DropdownMenuItem(value: 'Abril', child: Text('Abril')),
+                    DropdownMenuItem(value: 'Maio', child: Text('Maio')),
+                    DropdownMenuItem(value: 'Junho', child: Text('Junho')),
+                    DropdownMenuItem(value: 'Julho', child: Text('Julho')),
+                    DropdownMenuItem(value: 'Agosto', child: Text('Agosto')),
+                    DropdownMenuItem(
+                      value: 'Setembro',
+                      child: Text('Setembro'),
+                    ),
+                    DropdownMenuItem(value: 'Outubro', child: Text('Outubro')),
+                    DropdownMenuItem(
+                      value: 'Novembro',
+                      child: Text('Novembro'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Dezembro',
+                      child: Text('Dezembro'),
+                    ),
+                  ],
+                  onChanged:
+                      (value) => setState(() {
+                        mesSelecionado = value!;
+                      }),
                 ),
                 const SizedBox(height: 10),
                 TextField(
@@ -113,7 +146,7 @@ class ContasPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 DropdownButtonFormField<String>(
-                  value: status,
+                  value: statusSelecionado,
                   decoration: const InputDecoration(labelText: 'Status'),
                   items: const [
                     DropdownMenuItem(
@@ -122,13 +155,10 @@ class ContasPage extends StatelessWidget {
                     ),
                     DropdownMenuItem(value: 'Pago', child: Text('Pago')),
                   ],
-                  onChanged: (value) {
-                    if (value != null) {
-                      setState(() {
-                        status = value;
-                      });
-                    }
-                  },
+                  onChanged:
+                      (value) => setState(() {
+                        statusSelecionado = value!;
+                      }),
                 ),
               ],
             ),
@@ -140,10 +170,9 @@ class ContasPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                final descricao = descricaoController.text.trim();
                 final valor = double.tryParse(valorController.text.trim());
 
-                if (descricao.isEmpty || valor == null) {
+                if (valor == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Preencha todos os campos corretamente'),
@@ -153,9 +182,9 @@ class ContasPage extends StatelessWidget {
                 }
 
                 await contasRef.add({
-                  'descricao': descricao,
                   'valor': valor,
-                  'status': status,
+                  'mes': mesSelecionado,
+                  'status': statusSelecionado,
                   'criadoEm': Timestamp.now(),
                 });
 

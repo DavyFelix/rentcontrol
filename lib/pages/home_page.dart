@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Controle de Aluguel',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(

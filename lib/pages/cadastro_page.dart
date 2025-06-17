@@ -34,9 +34,9 @@ class CadastroPage extends StatelessWidget {
   }
 
   void _showMessage(BuildContext context, String message) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
   }
 
   @override
@@ -44,7 +44,10 @@ class CadastroPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Criar Conta', style: TextStyle(color: Colors.black)),
+        title: const Text(
+          '',
+          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -57,7 +60,7 @@ class CadastroPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue[700],
+                  color: const Color(0xFFc1a9b9),
                 ),
               ),
               const SizedBox(height: 32),

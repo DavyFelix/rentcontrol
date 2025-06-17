@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: const Color.fromARGB(255, 4, 139, 230),
+                  color:const Color(0xFFc1a9b9),
                 ),
               ),
               SizedBox(height: 32),
@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => autenticar(context),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 3, 190, 214),
+                    backgroundColor: const Color.fromARGB(255, 201, 169, 187),
                     padding: EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),

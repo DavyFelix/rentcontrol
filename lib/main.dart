@@ -36,7 +36,7 @@ class App extends StatelessWidget {
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
+              backgroundColor:const Color(0xFFc1a9b9),
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -46,9 +46,9 @@ class App extends StatelessWidget {
           ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-            prefixIconColor: Colors.blue,
+            prefixIconColor: const Color(0xFFc1a9b9),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.blue),
+              borderSide: BorderSide(color: const Color.fromARGB(255, 168, 145, 160)),
               borderRadius: BorderRadius.circular(12),
             ),
           ),

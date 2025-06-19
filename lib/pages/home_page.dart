@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerMenu(),
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Controle de Aluguel',
           style: TextStyle(color: Colors.black),

@@ -32,12 +32,16 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset(
+                'assets/images/predios_inicio.png', // Substitua pelo caminho correto da sua imagem
+                height: 120,
+              ),
               Text(
                 "Bem-vindo ao Rents!",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color:const Color(0xFFc1a9b9),
+                  color: const Color(0xFFc1a9b9),
                 ),
               ),
               SizedBox(height: 32),

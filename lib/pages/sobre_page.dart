@@ -39,9 +39,9 @@ class SobrePage extends StatelessWidget {
             // ignore: deprecated_member_use
             backgroundColor: const Color.fromARGB(
               255,
-              18,
-              168,
-              255,
+              183,
+              153,
+              184,
             ).withOpacity(0.95),
             elevation: 3,
           ),
@@ -82,7 +82,7 @@ class SobrePage extends StatelessWidget {
                   ),
                   SizedBox(height: 24),
                   Text(
-                    'Este aplicativo é para quem, como você, vive esquecendo dos jogos que começou e nunca termina! Crie seu catálogo personalizado, acompanhe plataformas, gêneros e conquistas, e finalmente zere seus jogos pendentes com estilo.',
+                    'O Controle de Aluguel é um aplicativo simples e prático para organizar os pagamentos de aluguel de imóveis.Com ele, é possível cadastrar casas, registrar mensalmente os valores de aluguel, acompanhar o status de pagamento (Pendente, Pago ou Cancelado) e manter um histórico por mês e ano.Ideal para proprietários ou responsáveis pela gestão de um ou mais imóveis.',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white70,

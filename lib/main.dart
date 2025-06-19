@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:auth_package/auth_package.dart';
 import 'package:rentcontrol/pages/cadastro_page.dart';
+import 'package:rentcontrol/pages/conta_page.dart';
 import 'package:rentcontrol/pages/home_page.dart';
 import 'package:rentcontrol/pages/login_page.dart';
 import 'package:rentcontrol/pages/sobre_page.dart';
+import 'package:rentcontrol/providers/contas_provider.dart';
 import 'package:rentcontrol/routers/routers.dart';
 import 'firebase_options.dart';
 
@@ -23,20 +25,21 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<RentsAuth>(create: (_) => RentsAuth()),
+        ChangeNotifierProvider(create: (_) => ContasProvider()),
       ],
       child: MaterialApp(
         title: 'Controle de Aluguel',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.brown,
           colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.blue,
+            seedColor: const Color.fromARGB(255, 155, 133, 155),
             brightness: Brightness.light,
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              backgroundColor:const Color(0xFFc1a9b9),
+              backgroundColor: const Color.fromARGB(255, 155, 133, 155),
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -46,9 +49,9 @@ class App extends StatelessWidget {
           ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-            prefixIconColor: const Color(0xFFc1a9b9),
+            prefixIconColor: const Color.fromARGB(255, 155, 133, 155),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: const Color.fromARGB(255, 168, 145, 160)),
+              borderSide: BorderSide(color: Colors.brown),
               borderRadius: BorderRadius.circular(12),
             ),
           ),

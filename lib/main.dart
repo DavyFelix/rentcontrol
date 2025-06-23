@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:auth_package/auth_package.dart';
 import 'package:rentcontrol/pages/cadastro_page.dart';
-import 'package:rentcontrol/pages/conta_page.dart';
 import 'package:rentcontrol/pages/home_page.dart';
 import 'package:rentcontrol/pages/login_page.dart';
 import 'package:rentcontrol/pages/sobre_page.dart';

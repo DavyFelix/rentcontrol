@@ -69,6 +69,7 @@ Future<void> mostrarContaDialog({
                       controller: anoController,
                       decoration: const InputDecoration(labelText: 'Ano'),
                       keyboardType: TextInputType.number,
+                      maxLength: 4,
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
                         LengthLimitingTextInputFormatter(4),
@@ -93,6 +94,7 @@ Future<void> mostrarContaDialog({
                       keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
+                      maxLength: 8,
                       validator: (value) {
                         final parsed = double.tryParse(value ?? '');
                         if (parsed == null) {

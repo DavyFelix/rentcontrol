@@ -7,6 +7,7 @@ import 'package:rentcontrol/pages/conta_page.dart';
 import 'package:rentcontrol/providers/contas_provider.dart';
 
 class MockContasProvider extends Mock implements ContasProvider {}
+
 void main() {
   late MockContasProvider mockProvider;
 
@@ -41,8 +42,7 @@ void main() {
   });
 
   testWidgets('Exibe erro se snapshot tiver erro', (tester) async {
-    when(mockProvider.contasStream)
-        .thenAnswer((_) => Stream.error("Erro"));
+    when(mockProvider.contasStream).thenAnswer((_) => Stream.error("Erro"));
 
     await tester.pumpWidget(criarTela());
     await tester.pump();
@@ -50,33 +50,31 @@ void main() {
     expect(find.text('Erro ao carregar contas'), findsOneWidget);
   });
 
-testWidgets('Renderiza lista de contas', (tester) async {
-  final contas = [
-    Conta(
-      valor: 120.0,
-      id: '1',
-      mes: 'Janeiro',
-      ano: 2025,
-      status: 'Pendente',
-      criadoEm: Timestamp.fromDate(DateTime(2025, 1, 15)),
-    ),
-    Conta(
-      valor: 80.0,
-      id: '2',
-      mes: 'Janeiro',
-      ano: 2025,
-      status: 'Pendente',
-      criadoEm: Timestamp.fromDate(DateTime(2025, 1, 15)),
-    ),
-  ];
+  testWidgets('Renderiza lista de contas', (tester) async {
+    final contas = [
+      Conta(
+        valor: 120.0,
+        id: '1',
+        mes: 'Janeiro',
+        ano: 2025,
+        status: 'Pendente',
+        criadoEm: Timestamp.fromDate(DateTime(2025, 1, 15)),
+      ),
+      Conta(
+        valor: 80.0,
+        id: '2',
+        mes: 'Janeiro',
+        ano: 2025,
+        status: 'Pendente',
+        criadoEm: Timestamp.fromDate(DateTime(2025, 1, 15)),
+      ),
+    ];
 
-  when(mockProvider.contasStream).thenAnswer((_) => Stream.value(contas));
+    when(mockProvider.contasStream).thenAnswer((_) => Stream.value(contas));
 
-  await tester.pumpWidget(criarTela());
-  await tester.pump();
-
-});
-
+    await tester.pumpWidget(criarTela());
+    await tester.pump();
+  });
 
   testWidgets('Botão Adicionar aciona o diálogo', (tester) async {
     when(mockProvider.contasStream).thenAnswer((_) => Stream.value([]));
@@ -87,6 +85,9 @@ testWidgets('Renderiza lista de contas', (tester) async {
     await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('Salvar'), findsOneWidget); // se houver no dialog
+    expect(
+      find.textContaining('Salvar'),
+      findsOneWidget,
+    ); // se houver no dialog
   });
 }

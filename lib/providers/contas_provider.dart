@@ -45,7 +45,11 @@ class Conta {
 }
 
 class ContasProvider with ChangeNotifier {
+  final FirebaseFirestore firestore;
   String? _casaId;
+
+  ContasProvider({FirebaseFirestore? firestore})
+    : firestore = firestore ?? FirebaseFirestore.instance;
 
   void setCasaId(String id) {
     _casaId = id;
@@ -54,10 +58,7 @@ class ContasProvider with ChangeNotifier {
 
   CollectionReference? get _ref {
     if (_casaId == null) return null;
-    return FirebaseFirestore.instance
-        .collection('casa')
-        .doc(_casaId)
-        .collection('contas');
+    return firestore.collection('casa').doc(_casaId).collection('contas');
   }
 
   Stream<List<Conta>>? get contasStream {
@@ -78,14 +79,7 @@ class ContasProvider with ChangeNotifier {
   }
 
   Future<void> atualizarConta(Conta conta) async {
-    if (_casaId == null) return;
-
-    final docRef = FirebaseFirestore.instance
-        .collection('casa')
-        .doc(_casaId)
-        .collection('contas')
-        .doc(conta.id);
-
-    await docRef.update(conta.toMap());
+    if (_ref == null) return;
+    await _ref!.doc(conta.id).update(conta.toMap());
   }
 }

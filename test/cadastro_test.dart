@@ -28,7 +28,7 @@ void main() {
     );
   }
 
-  testWidgets('❌ Mostra erro se campos estiverem vazios', (tester) async {
+  testWidgets('Mostra erro se campos estiverem vazios', (tester) async {
     await tester.pumpWidget(createTestWidget());
 
     await tester.tap(find.text('Cadastrar'));
@@ -37,7 +37,7 @@ void main() {
     expect(find.text('Preencha todos os campos'), findsOneWidget);
   });
 
-  testWidgets('❌ Mostra erro se senhas não coincidem', (tester) async {
+  testWidgets('Mostra erro se senhas não coincidem', (tester) async {
     await tester.pumpWidget(createTestWidget());
 
     await tester.enterText(find.byType(TextField).at(0), 'teste@teste.com');

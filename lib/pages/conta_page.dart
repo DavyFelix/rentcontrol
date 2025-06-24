@@ -67,6 +67,11 @@ class _ContasPageState extends State<ContasPage> {
                     },
                   );
                 },
+                onDeletar: () async {
+                  await provider.deletarConta(
+                    conta.id,
+                  ); // certifique-se de ter esse método
+                },
               );
             },
           );

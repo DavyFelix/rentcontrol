@@ -82,4 +82,11 @@ class ContasProvider with ChangeNotifier {
     if (_ref == null) return;
     await _ref!.doc(conta.id).update(conta.toMap());
   }
+
+  Future<void> deletarConta(String id) async {
+    if (_ref == null) return;
+    await _ref!.doc(id).delete().catchError((error) {
+      print('Erro ao deletar conta: $error');
+    });
+  }
 }

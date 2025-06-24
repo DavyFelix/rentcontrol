@@ -28,6 +28,14 @@ void main() {
     );
   }
 
+  testWidgets('Renderiza a página de cadastro', (tester) async {
+    await tester.pumpWidget(createTestWidget());
+
+    expect(find.text('Criar Conta'), findsOneWidget);
+    expect(find.byType(TextField), findsNWidgets(3));
+    expect(find.text('Cadastrar'), findsOneWidget);
+  });
+
   testWidgets('Mostra erro se campos estiverem vazios', (tester) async {
     await tester.pumpWidget(createTestWidget());
 

@@ -38,9 +38,16 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 
 ## 📸 Capturas de Tela 
 
-## IMPORTANTE!! Na pasta assets tem videos mostrando como esta sendo salvado no FirebaseFirestore no caminho 
-assets/Pos_imagem
+![Tela Home](assets/images_readme/HomePage.png)
 
+### Tela de Contas
+![Tela Contas](assets/images_readme/contasPage.png)
+
+### Cadastro de Usuarios
+![Cadastro Conta](assets/images_readme/cadastroPage.png)
+
+
+## IMPORTANTE!! Na pasta assets tem videos mostrando como esta sendo salvado no FirebaseFirestore no caminho 
 
 ---
 

@@ -6,6 +6,7 @@ import 'package:rentcontrol/pages/cadastro_page.dart';
 import 'package:rentcontrol/pages/home_page.dart';
 import 'package:rentcontrol/pages/login_page.dart';
 import 'package:rentcontrol/pages/sobre_page.dart';
+import 'package:rentcontrol/providers/casa_provider.dart';
 import 'package:rentcontrol/providers/contas_provider.dart';
 import 'package:rentcontrol/routers/routers.dart';
 import 'firebase_options.dart';
@@ -25,6 +26,7 @@ class App extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<RentsAuth>(create: (_) => RentsAuth()),
         ChangeNotifierProvider(create: (_) => ContasProvider()),
+        ChangeNotifierProvider(create: (_) => CasaProvider()),
       ],
       child: MaterialApp(
         title: 'Controle de Aluguel',

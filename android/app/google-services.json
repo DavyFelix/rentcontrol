@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100507319008:android:1bb0a9c4283d088546ee85",
         "android_client_info": {
-          "package_name": "com.example.rentcontrol"
+          "package_name": "felix.davy.rentcontrol"
         }
       },
       "oauth_client": [],

@@ -9,14 +9,14 @@ class CasaItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(data['nomeLK'] ?? 'Sem Nome'),
-    subtitle: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(data['Rua'] ?? 'Sem Rua'),
-        Text(data['Bairro '] ?? 'Sem endereço'),
-      ],
-    ),
+      title: Text(data['nome'] ?? 'Sem Nome'),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(data['rua'] ?? 'Sem Rua'),
+          Text(data['bairro'] ?? 'Sem endereço'),
+        ],
+      ),
       trailing: const Icon(Icons.chevron_right),
       onTap: onTap,
     );

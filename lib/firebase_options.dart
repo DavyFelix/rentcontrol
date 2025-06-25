@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100507319008',
     projectId: 'rentalcontrol-e6e10',
     storageBucket: 'rentalcontrol-e6e10.firebasestorage.app',
-    iosBundleId: 'com.example.rentcontrol',
+    iosBundleId: 'felix.davy.rentcontrol',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -73,7 +73,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100507319008',
     projectId: 'rentalcontrol-e6e10',
     storageBucket: 'rentalcontrol-e6e10.firebasestorage.app',
-    iosBundleId: 'com.example.rentcontrol',
+    iosBundleId: 'felix.davy.rentcontrol',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

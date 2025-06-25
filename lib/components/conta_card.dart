@@ -22,13 +22,13 @@ class ContaCard extends StatelessWidget {
             content: const Text('Deseja realmente excluir esta conta?'),
             actions: [
               TextButton(
-                onPressed: () => Navigator.of(ctx).pop(), // Cancelar
+                onPressed: () => Navigator.of(ctx).pop(),
                 child: const Text('Cancelar'),
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(ctx).pop(); // Fecha o diálogo
-                  onDeletar(); // Executa a função de deletar
+                  Navigator.of(ctx).pop();
+                  onDeletar();
                 },
                 child: const Text(
                   'Excluir',
@@ -60,30 +60,59 @@ class ContaCard extends StatelessWidget {
     }
 
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      elevation: 4,
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      elevation: 3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: ListTile(
-        title: Text('${conta.mes} ${conta.ano}'),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        child: Row(
           children: [
-            Text('Valor: R\$ ${conta.valor.toStringAsFixed(2)}'),
-            Text(
-              'Status: ${conta.status}',
-              style: TextStyle(color: statusColor, fontWeight: FontWeight.w500),
+            Icon(statusIcon, color: statusColor, size: 30),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${conta.mes} ${conta.ano}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 4,
+                    children: [
+                      Text(
+                        'Valor: R\$ ${conta.valor.toStringAsFixed(2)}',
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                      Text(
+                        'Status: ${conta.status}',
+                        style: TextStyle(
+                          color: statusColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
-        leading: Icon(statusIcon, color: statusColor),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(icon: const Icon(Icons.edit), onPressed: onEditar),
-            IconButton(
-              icon: const Icon(Icons.delete),
-              color: Colors.red,
-              onPressed: () => _confirmarExclusao(context),
+            const SizedBox(width: 8),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(icon: const Icon(Icons.edit), onPressed: onEditar),
+                IconButton(
+                  icon: const Icon(Icons.delete),
+                  color: Colors.red,
+                  onPressed: () => _confirmarExclusao(context),
+                ),
+              ],
             ),
           ],
         ),

@@ -33,49 +33,60 @@ class _ContasPageState extends State<ContasPage> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Contas da Casa')),
-      body: StreamBuilder<List<Conta>>(
-        stream: stream,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(child: Text('Erro ao carregar contas'));
-          }
+      body: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: StreamBuilder<List<Conta>>(
+                stream: stream,
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return const Center(child: Text('Erro ao carregar contas'));
+                  }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
 
-          final contas = snapshot.data ?? [];
+                  final contas = snapshot.data ?? [];
 
-          if (contas.isEmpty) {
-            return const Center(child: Text('Nenhuma conta cadastrada'));
-          }
+                  if (contas.isEmpty) {
+                    return const Center(
+                      child: Text('Nenhuma conta cadastrada'),
+                    );
+                  }
 
-          return ListView.builder(
-            itemCount: contas.length,
-            itemBuilder: (context, index) {
-              final conta = contas[index];
-              return ContaCard(
-                conta: conta,
-                onEditar: () {
-                  mostrarContaDialog(
-                    context: context,
-                    contaExistente: conta,
-                    onSalvar: (contaAtualizada) {
-                      context.read<ContasProvider>().atualizarConta(
-                        contaAtualizada,
+                  return ListView.separated(
+                    itemCount: contas.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 8),
+                    itemBuilder: (context, index) {
+                      final conta = contas[index];
+                      return ContaCard(
+                        conta: conta,
+                        onEditar: () {
+                          mostrarContaDialog(
+                            context: context,
+                            contaExistente: conta,
+                            onSalvar: (contaAtualizada) {
+                              context.read<ContasProvider>().atualizarConta(
+                                contaAtualizada,
+                              );
+                            },
+                          );
+                        },
+                        onDeletar: () async {
+                          await provider.deletarConta(conta.id);
+                        },
                       );
                     },
                   );
                 },
-                onDeletar: () async {
-                  await provider.deletarConta(
-                    conta.id,
-                  ); // certifique-se de ter esse método
-                },
-              );
-            },
-          );
-        },
+              ),
+            ),
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {

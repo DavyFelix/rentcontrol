@@ -38,28 +38,24 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 
 ## 📸 Capturas de Tela 
 
-**Tela Login**
+### Tela Login
 ![Tela Login](assets/images_readme/login_page.png)
-
-**Tela Home**
+### Tela Home
 ![Tela Home](assets/images_readme/HomePage.png)
-
-**Tela de Contas**
+### Tela de Contas
 ![Tela Contas](assets/images_readme/contasPage.png)
-
-**Adicionar Conta**
+### Adicionar Conta
 ![Sobre Page](assets/images_readme/contasDialogADD.png.png)
-
-**Editar Conta**
+### Editar Conta
 ![Sobre Page](assets/images_readme/contaDialogEDIT.png)
 
-**Cadastro de Usuarios**
+### Cadastro de Usuarios
 ![Cadastro Conta](assets/images_readme/cadastroPage.png)
 
-**Drawer Menu**
+### Drawer Menu
 ![Drawer Menu](assets/images_readme/drawer.png)
 
-**Sobre Page**
+### Sobre Page
 ![Sobre Page](assets/images_readme/sobrePage.png)
 
 **Firestore com os dados**

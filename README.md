@@ -64,10 +64,7 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 
 
 ## 📸 Videos
-<video width="600" controls>
-  <source src="assets/Videos/Controle de Aluguel - Google Chrome 2025-06-24 21-57-31.mp4" type="video/mp4">
-  Seu navegador não suporta vídeo.
-</video>
+**videos do arquivo salvando no firebase firestore no caminho assets/Videos**
 
 
 ## 📦 Como executar

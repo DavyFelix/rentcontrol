@@ -38,18 +38,41 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 
 ## 📸 Capturas de Tela 
 
+**Tela Login**
+![Tela Login](assets/images_readme/login_page.png)
+
+**Tela Home**
 ![Tela Home](assets/images_readme/HomePage.png)
 
-### Tela de Contas
+**Tela de Contas**
 ![Tela Contas](assets/images_readme/contasPage.png)
 
-### Cadastro de Usuarios
+**Adicionar Conta**
+![Sobre Page](assets/images_readme/contasDialogADD.png.png)
+
+**Editar Conta**
+![Sobre Page](assets/images_readme/contaDialogEDIT.png)
+
+**Cadastro de Usuarios**
 ![Cadastro Conta](assets/images_readme/cadastroPage.png)
 
+**Drawer Menu**
+![Drawer Menu](assets/images_readme/drawer.png)
 
-## IMPORTANTE!! Na pasta assets tem videos mostrando como esta sendo salvado no FirebaseFirestore no caminho 
+**Sobre Page**
+![Sobre Page](assets/images_readme/sobrePage.png)
 
----
+**Firestore com os dados**
+![firestore1](assets/images_readme/firestore1.png)
+![firestore2](assets/images_readme/firestore2.png)
+
+
+## 📸 Videos
+![video1](assets/Videos/Controle%20de%20Aluguel%20-%20Google%20Chrome%202025-06-24%2021-57-31.mp4)
+![video2](assets/Videos/Controle%20de%20Aluguel%20-%20Google%20Chrome%202025-06-24%2023-12-31.mp4)
+![video3](assets/Videos/RentalControl%20-%20Authentication%20-%20Usuários%20-%20Console%20do%20Firebase%20e%20mais%206%20páginas%20-%20Pessoal%20—%20Microsoft​%20Edge%202025-06-24%2023-13-20.mp4)
+![video4](assets/Videos/RentalControl%20-%20Cloud%20Firestore%20-%20Dados%20-%20Console%20do%20Firebase%20-%20Google%20Chrome%202025-06-24%2022-01-22.mp4)
+
 
 ## 📦 Como executar
 
@@ -57,3 +80,6 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
    ```bash
    git clone https://github.com/seu-usuario/rentcontrol.git
    cd rentcontrol
+## Cobertura de Teste
+**Cabertura de Teste**
+![Corbertura de Testes](assets/images_readme/cobertura%20de%20Testes.png)

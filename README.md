@@ -45,9 +45,9 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 ### Tela de Contas
 ![Tela Contas](assets/images_readme/contasPage.png)
 ### Adicionar Conta
-![Sobre Page](assets/images_readme/contasDialogADD.png.png)
+![Adicionar Conta](assets/images_readme/contasDialogADD.png.png)
 ### Editar Conta
-![Sobre Page](assets/images_readme/contaDialogEDIT.png)
+![Editar Conta](assets/images_readme/contaDialogEDIT.png)
 
 ### Cadastro de Usuarios
 ![Cadastro Conta](assets/images_readme/cadastroPage.png)
@@ -64,10 +64,9 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 
 
 ## 📸 Videos
-![video1](assets/Videos/Controle%20de%20Aluguel%20-%20Google%20Chrome%202025-06-24%2021-57-31.mp4)
-![video2](assets/Videos/Controle%20de%20Aluguel%20-%20Google%20Chrome%202025-06-24%2023-12-31.mp4)
-![video3](assets/Videos/RentalControl%20-%20Authentication%20-%20Usuários%20-%20Console%20do%20Firebase%20e%20mais%206%20páginas%20-%20Pessoal%20—%20Microsoft​%20Edge%202025-06-24%2023-13-20.mp4)
-![video4](assets/Videos/RentalControl%20-%20Cloud%20Firestore%20-%20Dados%20-%20Console%20do%20Firebase%20-%20Google%20Chrome%202025-06-24%2022-01-22.mp4)
+<video width="600" controls>
+  <source src="assets/Videos/Controle%20de%20Aluguel%20-%20Google%20Chrome%202025-06-24%2021-57-31.mp4" type="video/mp4">
+</video>
 
 
 ## 📦 Como executar

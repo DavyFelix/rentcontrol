@@ -38,7 +38,8 @@ Futuramente, o sistema contará com **hierarquia de permissões**, permitindo a 
 
 ## 📸 Capturas de Tela 
 
-## IMPORTANTE!! Na pasta assets tem videos mostrando como esta sendo salvado no FirebaseFirestore 
+## IMPORTANTE!! Na pasta assets tem videos mostrando como esta sendo salvado no FirebaseFirestore no caminho 
+assets/Pos_imagem
 
 
 ---
